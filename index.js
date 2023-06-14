@@ -16,6 +16,9 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.resolve(__dirname, 'static')))
 app.use(fileUpload({}))
 app.use('/api', mainRouter)
+app.use('/', (req, res) => {
+    return res.json({message: 'hello'})
+})
 
 app.use(errorHandler)
 
